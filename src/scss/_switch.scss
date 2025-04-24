@@ -1,0 +1,83 @@
+body {
+  // Switch // switch does not have any theme dependent variables
+  --rdm-switch-width: 50px;
+  --rdm-switch-height: 25px;
+  --rdm-switch-slider-height: 18px;
+  --rdm-switch-slider-width: 18px;
+  --rdm-switch-gap: 4px;
+  --rdm-switch-slider-color: #fff;
+  --rdm-switch-off-color: #6f6f6f;
+  --rdm-switch-on-color: #007bff;
+
+  [size="lg"] {
+    --rdm-switch-width: 70px;
+    --rdm-switch-height: 35px;
+    --rdm-switch-slider-height: 24px;
+    --rdm-switch-slider-width: 24px;
+    --rdm-switch-gap: 6px;
+  }
+  [size="sm"] {
+    --rdm-switch-width: 30px;
+    --rdm-switch-height: 15px;
+    --rdm-switch-slider-height: 12px;
+    --rdm-switch-slider-width: 12px;
+    --rdm-switch-gap: 2px;
+  }
+}
+
+/* Toggle Switch Label */
+.rdm-switch {
+  position: relative;
+  display: inline-block;
+  width: var(--rdm-switch-width);
+  height: var(--rdm-switch-height);
+}
+
+/* Hide the checkbox */
+.rdm-no-size-hide {
+  opacity: 0;
+  width: 0;
+  height: 0;
+}
+
+/* The slider (the round part of the switch) */
+.rdm-switch-slider {
+  position: absolute;
+  cursor: pointer;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background-color: var(--rdm-switch-off-color);
+  transition: 0.4s;
+  border-radius: var(--rdm-switch-height);
+}
+
+/* The slider's circle inside (the knob) */
+.rdm-switch-slider::before {
+  position: absolute;
+  content: "";
+  height: var(--rdm-switch-slider-height);
+  width: var(--rdm-switch-slider-width);
+  border-radius: 50%;
+  left: var(--rdm-switch-gap);
+  bottom: var(--rdm-switch-gap);
+  background-color: var(--rdm-switch-slider-color);
+  transition: 0.4s;
+}
+/* Change background color when the toggle is checked */
+.rdm-no-size-hide:checked + .rdm-switch-slider {
+  background-color: var(--rdm-switch-on-color);
+}
+
+/* Move the knob when the toggle is checked */
+.rdm-no-size-hide:checked + .rdm-switch-slider::before {
+  transform: translateX(
+    calc(
+      var(--rdm-switch-width) - var(--rdm-switch-slider-width) - var(
+          --rdm-switch-gap
+        ) *
+        2
+    )
+  );
+}

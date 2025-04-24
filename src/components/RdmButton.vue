@@ -6,18 +6,15 @@
 </template>
 
 <script setup>
-
-import { useSlots } from 'vue'
+import { useSlots } from "vue";
 
 const props = defineProps({
   text: {
     type: String,
-    default: ''
-  }
-})
+    default: "",
+  },
+});
 // check if any slots is provided
-const slots = useSlots()
-const hasSlot = slots.default
-
+const slots = useSlots();
+const hasSlot = slots.default;
 </script>
-
