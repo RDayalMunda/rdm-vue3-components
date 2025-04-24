@@ -1,0 +1,59 @@
+.rdm-button {
+  background-color: var(--rdm-primary-color);
+  color: var(--rdm-secondary-color);
+  border: none;
+  padding: 5px 10px;
+  border-radius: 5px;
+  cursor: pointer;  
+}
+
+
+/* Toggle Switch Label */
+.rdm-switch {
+  position: relative;
+  display: inline-block;
+  width: var(--rdm-switch-width);
+  height: var(--rdm-switch-height);
+}
+
+/* Hide the checkbox */
+.rdm-no-size-hide {
+  opacity: 0;
+  width: 0;
+  height: 0;
+}
+
+/* The slider (the round part of the switch) */
+.rdm-switch-slider {
+  position: absolute;
+  cursor: pointer;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background-color: var(--rdm-switch-off-color);
+  transition: 0.4s;
+  border-radius: var(--rdm-switch-height);
+}
+
+/* The slider's circle inside (the knob) */
+.rdm-switch-slider::before {
+  position: absolute;
+  content: "";
+  height: var(--rdm-switch-slider-height);
+  width: var(--rdm-switch-slider-width);
+  border-radius: 50%;
+  left: 4px;
+  bottom: 4px;
+  background-color: var(--rdm-switch-slider-color);
+  transition: 0.4s;
+}
+/* Change background color when the toggle is checked */
+.rdm-no-size-hide:checked + .rdm-switch-slider {
+  background-color: var(--rdm-switch-on-color);
+}
+
+/* Move the knob when the toggle is checked */
+.rdm-no-size-hide:checked + .rdm-switch-slider::before {
+  transform: translateX(calc(var(--rdm-switch-width) - var(--rdm-switch-slider-width) - 8px));
+}

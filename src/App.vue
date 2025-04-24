@@ -1,47 +1,23 @@
-<script setup>
-import HelloWorld from './components/HelloWorld.vue'
-import TheWelcome from './components/TheWelcome.vue'
-</script>
-
 <template>
-  <header>
-    <img alt="Vue logo" class="logo" src="./assets/logo.svg" width="125" height="125" />
-
-    <div class="wrapper">
-      <HelloWorld msg="You did it!" />
-    </div>
-  </header>
-
-  <main>
-    <TheWelcome />
-  </main>
+  <RdmToggle v-model="isDarkTheme" />
+  dark-theme ->{{ isDarkTheme }}
+  <h1>Hello World</h1>
+  <RdmButtonRunner />
 </template>
 
-<style scoped>
-header {
-  line-height: 1.5;
-}
+<script setup>
+import RdmButtonRunner from "./components/RdmButtonRunner.vue";
+import RdmToggle from "./components/RdmSwitch.vue";
+import "./scss/_variables.scss";
+import "./scss/_styles.scss";
+import { ref, watch } from "vue";
 
-.logo {
-  display: block;
-  margin: 0 auto 2rem;
-}
-
-@media (min-width: 1024px) {
-  header {
-    display: flex;
-    place-items: center;
-    padding-right: calc(var(--section-gap) / 2);
+const isDarkTheme = ref(document.body.classList.contains("rdm-dark"));
+watch(isDarkTheme, (newVal) => {
+  if (newVal) {
+    document.body.classList.add("rdm-dark");
+  } else {
+    document.body.classList.remove("rdm-dark");
   }
-
-  .logo {
-    margin: 0 2rem 0 0;
-  }
-
-  header .wrapper {
-    display: flex;
-    place-items: flex-start;
-    flex-wrap: wrap;
-  }
-}
-</style>
+});
+</script>
