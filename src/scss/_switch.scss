@@ -21,7 +21,7 @@ body {
     --rdm-switch-height: 15px;
     --rdm-switch-slider-height: 12px;
     --rdm-switch-slider-width: 12px;
-    --rdm-switch-gap: 2px;
+    --rdm-switch-gap: 1px;
   }
 }
 
@@ -80,4 +80,8 @@ body {
         2
     )
   );
+}
+
+.rdm-no-size-hide:focus-visible + .rdm-switch-slider {
+  outline: 2px solid #000;
 }
