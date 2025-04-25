@@ -1,17 +1,38 @@
+body {
+  --rdm-accordion-header-bg: #d5d5d5;
+  --rdm-accordion-header-bg-2: #c8c8c8;
+  --rdm-accordion-header-color: #000000;
+  --rdm-accordion-bg: #f9f9f9;
+}
 .rdm-accordion {
   overflow: hidden;
   border-radius: 5px;
   border: 1px solid #747474;
   transition: 0.3s ease-in-out;
-  background: rgb(204, 204, 227);
+  background: var(--rdm-accordion-bg);
 }
 
 .rdm-accordion-header {
-  background-color: #6470bb;
+  background: linear-gradient(
+    -45deg,
+    var(--rdm-accordion-header-bg),
+    var(--rdm-accordion-header-bg-2)
+  );
+  color: var(--rdm-accordion-header-color);
   border-radius: 5px;
   transition: 0.3s ease-in-out;
   padding: 5px;
+  cursor: pointer;
+  display: flex;
+  justify-content: space-between;
 }
 .rdm-accordion-content {
   padding: 10px;
+}
+
+.rdm-accordion-header-icon {
+  transition: 0.3s ease-in-out;
+}
+.rdm-accordion-header-icon.rdm-accordion-header-icon-open {
+  transform: rotate(180deg);
 }

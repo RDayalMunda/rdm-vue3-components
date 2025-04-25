@@ -6,7 +6,15 @@
       ref="accordionHeader"
       @click="toggleAccordion"
     >
-      Header : {{ headerHeight }} {{ contentHeight }}
+      <div v-if="title">{{ title }}</div>
+      <slot v-else-if="isHeaderSlot" name="header" />
+      <div v-else>&nbsp;</div>
+      <div
+        class="rdm-accordion-header-icon"
+        :class="{ 'rdm-accordion-header-icon-open': isOpen }"
+      >
+        &#129131;
+      </div>
     </div>
     <div class="rdm-accordion-content" ref="accordionContent">
       <slot name="content" />
@@ -16,7 +24,7 @@
 </template>
 
 <script setup>
-import { computed, onMounted, ref } from "vue";
+import { computed, onMounted, ref, useSlots } from "vue";
 
 const props = defineProps({
   title: {
@@ -31,7 +39,6 @@ const props = defineProps({
   },
 });
 
-const toggle = ref(false);
 const isOpen = ref(false);
 
 const accordionHeader = ref(null);
@@ -55,6 +62,11 @@ function toggleAccordion() {
     console.log("handle cases for accordion name", props.name);
   }
 }
+
+const slots = useSlots();
+const isHeaderSlot = computed(() => {
+  return props.title && slots.header ? true : false;
+});
 
 function handleResize() {
   headerHeight.value = accordionHeader.value.offsetHeight;

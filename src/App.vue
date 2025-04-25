@@ -3,11 +3,11 @@
   dark-theme ->{{ isDarkTheme }}
   <hr />
   <RdmAccordionRunner />
-  <!-- <hr />
+  <hr />
   <h1>Hello World</h1>
   <RdmButtonRunner />
   <hr />
-  <RdmSwitchRunner /> -->
+  <RdmSwitchRunner />
 </template>
 
 <script setup>
