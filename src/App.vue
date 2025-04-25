@@ -10,7 +10,6 @@
 <script setup>
 import RdmButtonRunner from "./components/RdmButtonRunner.vue";
 import RdmToggle from "./components/RdmSwitch.vue";
-import "./scss/_variables.scss";
 import "./scss/_styles.scss";
 import { ref, watch } from "vue";
 import RdmSwitchRunner from "./components/RdmSwitchRunner.vue";

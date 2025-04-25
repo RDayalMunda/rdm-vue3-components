@@ -51,10 +51,11 @@ body {
   background: linear-gradient(
     45deg,
     var(--rdm-secondary-bg),
-    var(--rdm-secondary -bg-2)
+    var(--rdm-secondary-bg-2)
   );
   transition: 0.4s;
   border-radius: var(--rdm-switch-height);
+  transition: 500ms;
 }
 
 /* The slider's circle inside (the knob) */
@@ -68,6 +69,7 @@ body {
   bottom: var(--rdm-switch-gap);
   background-color: var(--rdm-switch-slider-color);
   transition: 0.4s;
+  transition: 500ms;
 }
 /* Change background color when the toggle is checked */
 .rdm-no-size-hide:checked + .rdm-switch-slider {
