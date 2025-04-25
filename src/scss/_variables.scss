@@ -2,14 +2,16 @@
 body {
   --rdm-primary-bg: #0e82ff;
   --rdm-primary-bg-2: #00deff;
-  --rdm-secondary-bg: #c7c7c7;
-  --rdm-secondary-bg-2: #f1f1f1;
+  --rdm-primary-outline-bg: #f0f7ff;
+  --rdm-secondary-bg: #3c3c3c;
+  --rdm-secondary-bg-2: #565656;
 }
 
 /* Dark theme */
 body.rdm-dark {
   --rdm-primary-bg: #0e82ff;
   --rdm-primary-bg-2: #00deff;
+  --rdm-primary-outline-bg: #f0f7ff;
   --rdm-secondary-bg: #03dac6;
   --rdm-secondary-bg-2: #03dac6;
 }

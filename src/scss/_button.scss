@@ -2,7 +2,7 @@ body {
   --rdm-primary-color: #fff;
   --rdm-primary-button-border: #00deff;
   --rdm-secondary-button-border: #9d9d9d;
-  --rdm-secondary-color: #000;
+  --rdm-secondary-color: #fff;
 }
 body.rdm-dark {
   --rdm-primary-color: #fff;
@@ -22,7 +22,7 @@ body.rdm-dark {
   border: none;
   padding: 5px 10px;
   border-radius: 5px;
-  border: 1px solid var(--rdm-primary-button-border);
+  // border: 1px solid var(--rdm-primary-button-border);
   overflow: hidden;
   cursor: pointer;
   position: relative;
@@ -33,11 +33,21 @@ body.rdm-dark {
     var(--rdm-secondary-bg),
     var(--rdm-secondary-bg-2)
   );
-  border: 1px solid var(--rdm-secondary-button-border);
+  // border: 1px solid var(--rdm-secondary-button-border);
   color: var(--rdm-secondary-color);
 }
+.rdm-button[variant="primary-outline"] {
+  border: 1px solid var(--rdm-primary-bg);
+  background: var(--rdm-primary-outline-bg);
+  color: var(--rdm-primary-bg);
+}
 
-.rdm-button::before {
+.rdm-button[disabled] {
+  opacity: 0.5;
+  cursor: not-allowed;
+}
+
+.rdm-button:not([disabled])::before {
   content: "";
   position: absolute;
   top: 0;
@@ -54,10 +64,21 @@ body.rdm-dark {
   opacity: 0;
   pointer-events: none;
 }
+.rdm-button[variant="primary-outline"]::before {
+  background: linear-gradient(
+    120deg,
+    rgba(255, 255, 255, 0.1) 0%,
+    var(--rdm-primary-bg) 50%,
+    rgba(255, 255, 255, 0.1) 100%
+  );
+}
 
-.rdm-button:hover::before {
+.rdm-button:not([disabled]):hover::before {
   animation: shine 1s forwards;
   opacity: 1;
+}
+.rdm-button[variant="primary-outline"]:not([disabled]):hover::before {
+  opacity: 0.2;
 }
 
 @keyframes shine {

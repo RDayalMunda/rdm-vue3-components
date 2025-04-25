@@ -8,11 +8,56 @@
   <div class="custom-container">
     <div>
       <label>Primary Button</label>
-      <RdmButton text="Click Me" @click="handleClick" />
+      <RdmButton class="m-2" text="Click Me" @click="handleClick" />
+      <RdmButton
+        class="m-2"
+        @click="handleClick"
+        variant="primary-outline"
+        text="Click Me"
+      />
+    </div>
+    <div class="">
+      <label>Disabled Primary Button</label>
+      <RdmButton class="m-2" disabled @click="handleClick" text="Click Me" />
+      <RdmButton
+        class="m-2"
+        disabled
+        @click="handleClick"
+        text="Click Me"
+        variant="primary-outline"
+      />
+    </div>
+    <div class="">
+      <label>Secondary Button</label>
+      <RdmButton
+        class="m-2"
+        text="Click Me"
+        variant="secondary"
+        @click="handleClick"
+      />
+      <RdmButton
+        class="m-2"
+        text="Click Me"
+        variant="secondary-outline"
+        @click="handleClick"
+      />
     </div>
     <div>
-      <label>Secondary Button</label>
-      <RdmButton text="Click Me" variant="secondary" @click="handleClick" />
+      <label>Disabled Secondary Button</label>
+      <RdmButton
+        class="m-2"
+        text="Click Me"
+        disabled
+        variant="secondary"
+        @click="handleClick"
+      />
+      <RdmButton
+        class="m-2"
+        text="Click Me"
+        disabled
+        variant="secondary-outline"
+        @click="handleClick"
+      />
     </div>
   </div>
 </template>
@@ -32,5 +77,13 @@ function handleClick() {
 }
 .custom-container label {
   margin: 10px;
+}
+.custom-container-item {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+.m-2 {
+  margin: 6px;
 }
 </style>
