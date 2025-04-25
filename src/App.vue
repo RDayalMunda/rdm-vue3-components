@@ -1,10 +1,13 @@
 <template>
   <RdmToggle v-model="isDarkTheme" />
   dark-theme ->{{ isDarkTheme }}
+  <hr />
+  <RdmAccordionRunner />
+  <!-- <hr />
   <h1>Hello World</h1>
   <RdmButtonRunner />
   <hr />
-  <RdmSwitchRunner />
+  <RdmSwitchRunner /> -->
 </template>
 
 <script setup>
@@ -13,7 +16,8 @@ import RdmToggle from "./components/RdmSwitch.vue";
 import "./scss/_styles.scss";
 import { ref, watch } from "vue";
 import RdmSwitchRunner from "./components/RdmSwitchRunner.vue";
-document.body.classList.add("rdm-dark");
+import RdmAccordionRunner from "./components/RdmAccordionRunner.vue";
+
 const isDarkTheme = ref(document.body.classList.contains("rdm-dark"));
 watch(isDarkTheme, (newVal) => {
   if (newVal) {

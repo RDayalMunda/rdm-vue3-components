@@ -1,0 +1,17 @@
+.rdm-accordion {
+  overflow: hidden;
+  border-radius: 5px;
+  border: 1px solid #747474;
+  transition: 0.3s ease-in-out;
+  background: rgb(204, 204, 227);
+}
+
+.rdm-accordion-header {
+  background-color: #6470bb;
+  border-radius: 5px;
+  transition: 0.3s ease-in-out;
+  padding: 5px;
+}
+.rdm-accordion-content {
+  padding: 10px;
+}
