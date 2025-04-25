@@ -1,8 +1,14 @@
 body {
   --rdm-primary-color: #fff;
+  --rdm-primary-button-border: #00deff;
+  --rdm-secondary-button-border: #9d9d9d;
+  --rdm-secondary-color: #000;
 }
 body.rdm-dark {
   --rdm-primary-color: #fff;
+  --rdm-secondary-color: #000;
+  --rdm-primary-button-border: #9d9d9d;
+  --rdm-secondary-button-border: #9d9d9d;
 }
 
 .rdm-button {
@@ -16,7 +22,10 @@ body.rdm-dark {
   border: none;
   padding: 5px 10px;
   border-radius: 5px;
+  border: 1px solid var(--rdm-primary-button-border);
+  overflow: hidden;
   cursor: pointer;
+  position: relative;
 }
 .rdm-button[variant="secondary"] {
   background: linear-gradient(
@@ -24,4 +33,38 @@ body.rdm-dark {
     var(--rdm-secondary-bg),
     var(--rdm-secondary-bg-2)
   );
+  border: 1px solid var(--rdm-secondary-button-border);
+  color: var(--rdm-secondary-color);
+}
+
+.rdm-button::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: -75%;
+  width: 50%;
+  height: 100%;
+  background: linear-gradient(
+    120deg,
+    rgba(255, 255, 255, 0.1) 0%,
+    rgba(255, 255, 255, 0.5) 50%,
+    rgba(255, 255, 255, 0.1) 100%
+  );
+  transform: skewX(-20deg);
+  opacity: 0;
+  pointer-events: none;
+}
+
+.rdm-button:hover::before {
+  animation: shine 1s forwards;
+  opacity: 1;
+}
+
+@keyframes shine {
+  0% {
+    left: -75%;
+  }
+  100% {
+    left: 125%;
+  }
 }
