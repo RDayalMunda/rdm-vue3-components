@@ -13,6 +13,7 @@ import RdmToggle from "./components/RdmSwitch.vue";
 import "./scss/_styles.scss";
 import { ref, watch } from "vue";
 import RdmSwitchRunner from "./components/RdmSwitchRunner.vue";
+document.body.classList.add("rdm-dark");
 const isDarkTheme = ref(document.body.classList.contains("rdm-dark"));
 watch(isDarkTheme, (newVal) => {
   if (newVal) {

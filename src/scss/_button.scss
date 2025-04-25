@@ -5,10 +5,6 @@ body {
   --rdm-secondary-color: #fff;
 }
 body.rdm-dark {
-  --rdm-primary-color: #fff;
-  --rdm-secondary-color: #000;
-  --rdm-primary-button-border: #9d9d9d;
-  --rdm-secondary-button-border: #9d9d9d;
 }
 
 .rdm-button {
@@ -40,6 +36,11 @@ body.rdm-dark {
   border: 1px solid var(--rdm-primary-bg);
   background: var(--rdm-primary-outline-bg);
   color: var(--rdm-primary-bg);
+}
+.rdm-button[variant="secondary-outline"] {
+  border: 1px solid var(--rdm-secondary-bg);
+  background: var(--rdm-secondary-outline-bg);
+  color: var(--rdm-secondary-bg);
 }
 
 .rdm-button[disabled] {
@@ -73,15 +74,25 @@ body.rdm-dark {
   );
 }
 
+.rdm-button[variant="secondary-outline"]::before {
+  background: linear-gradient(
+    120deg,
+    rgba(255, 255, 255, 0.1) 0%,
+    var(--rdm-secondary-bg) 50%,
+    rgba(255, 255, 255, 0.1) 100%
+  );
+}
+
 .rdm-button:not([disabled]):hover::before {
-  animation: shine 1s forwards;
+  animation: rdm-button-shine 1s forwards infinite;
   opacity: 1;
 }
-.rdm-button[variant="primary-outline"]:not([disabled]):hover::before {
+.rdm-button[variant="primary-outline"]:not([disabled]):hover::before,
+.rdm-button[variant="secondary-outline"]:not([disabled]):hover::before {
   opacity: 0.2;
 }
 
-@keyframes shine {
+@keyframes rdm-button-shine {
   0% {
     left: -75%;
   }

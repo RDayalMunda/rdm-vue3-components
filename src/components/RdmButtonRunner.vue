@@ -1,10 +1,4 @@
 <template>
-  <div>
-    <button @click="handleClick">Click me</button>
-    <button @click="handleClick">👌</button>
-    <button @click="handleClick">A simple button with a long text</button>
-  </div>
-  <hr />
   <div class="custom-container">
     <div>
       <label>Primary Button</label>
