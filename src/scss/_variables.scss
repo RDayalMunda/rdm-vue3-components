@@ -1,11 +1,11 @@
 /* Light theme */
 body {
-  --rdm-primary-color: #007bff;
-  --rdm-secondary-color: #606060;
+  --rdm-primary-bg: #0e82ff;
+  --rdm-primary-bg-2: #00deff;
 }
 
 /* Dark theme */
 body.rdm-dark {
-  --rdm-primary-color: #082a4f;
-  --rdm-secondary-color: #03dac6;
+  --rdm-primary-bg: #0e82ff;
+  --rdm-primary-bg-2: #00deff;
 }
